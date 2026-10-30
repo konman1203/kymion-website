@@ -1,0 +1,335 @@
+/* ---------- Base ---------- */
+:root {
+  --blue: #2b6fc6;
+  --blue-dark: #2563b8;
+  --heading-blue: #1f6bd0;
+  --text: #2f3640;
+  --title: #17202b;
+  --muted: #6b7684;
+  --divider: #e3e7ec;
+  --page-bg: #eef2f6;
+  --card-bg: #ffffff;
+  --max-width: 884px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #f3f6f9 0%, var(--page-bg) 100%);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: linear-gradient(180deg, var(--blue) 0%, var(--blue-dark) 100%);
+  box-shadow: 0 2px 8px rgba(20, 50, 100, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 22px;
+  height: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav {
+  display: flex;
+  gap: 46px;
+  height: 100%;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* white underline under the active tab */
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* ---------- Card ---------- */
+.page {
+  padding: 26px 16px 60px;
+}
+
+.card {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(30, 50, 80, 0.08), 0 1px 3px rgba(30, 50, 80, 0.05);
+  padding: 32px 43px 40px;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.card-header h1 {
+  font-size: 2.85rem;
+  font-weight: 800;
+  color: var(--title);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.app-name {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.updated {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Sections ---------- */
+.policy-section {
+  padding: 18px 0 22px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.policy-section:first-of-type {
+  padding-top: 0;
+}
+
+.policy-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.policy-section h2 {
+  color: var(--heading-blue);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.policy-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.policy-section a {
+  color: var(--heading-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.policy-section a:hover {
+  color: var(--blue-dark);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .header-inner {
+    height: 60px;
+    padding: 0 16px;
+  }
+
+  .brand {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 24px 20px 30px;
+    border-radius: 12px;
+  }
+
+  .card-header h1 {
+    font-size: 2rem;
+  }
+
+  .policy-section h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- Home page: app list ---------- */
+.app-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.app-item:first-child {
+  padding-top: 0;
+}
+
+.app-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--heading-blue) 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(31, 107, 208, 0.25);
+}
+
+/* to use a real icon instead: <img class="app-icon" src="icon.png" alt=""> */
+img.app-icon {
+  object-fit: cover;
+  background: none;
+}
+
+.icon-tide {
+  background: linear-gradient(135deg, #1fa3c4 0%, #2b6fc6 100%);
+}
+
+.app-info h2 {
+  color: var(--heading-blue);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: #eef2f6;
+  border-radius: 999px;
+  padding: 2px 10px;
+  letter-spacing: 0;
+}
+
+.app-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.app-links a,
+.contact a {
+  color: var(--heading-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.app-links a:hover,
+.contact a:hover {
+  color: var(--blue-dark);
+}
+
+.contact {
+  padding-top: 22px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .app-item {
+    gap: 14px;
+  }
+
+  .app-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+    font-size: 1.1rem;
+  }
+
+  .app-info h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- App page ---------- */
+.app-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-hero .app-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  font-size: 1.7rem;
+}
+
+.policy-section ul {
+  padding-left: 22px;
+}
+
+.policy-section li {
+  margin-bottom: 4px;
+}
